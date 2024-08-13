@@ -31,35 +31,38 @@ with st.sidebar:
 if (selected == 'Heart Disease Prediction'):
     #page title
     st.title('Heart Disease Prediction Using ML')
+    try:
 
-    Age = st.text_input('Age of the Person')
-    Sex = st.text_input('Sex of the Person (0-> Female 1-> Male)')
-    Cp = st.text_input('Rating of Chest Pain (0 - 3, 3 being severe)')
-    testbps = st.text_input('Resting Blood Pressure')
-    chol = st.text_input('Cholestrol level in mg/dl')
-    fbs = st.text_input('Fasting blood sugar')
-    restecg = st.text_input('Resting Electrocardiographic results (values 0,1,2)')
-    thalach = st.text_input('Maximum Heart Rate Achieved')
-    exang = st.text_input('Exercise induced angina')
-    oldpeak = st.text_input('ST depression induced by exercise relative to rest')
-    slope = st.text_input('Slope of the Peak Exercise ST segment')
-    ca = st.text_input('Number of major vessels (0-3) colored by fluorosopy')
-    thal = st.text_input('Thalassemia (0 -> normal, 1 -> fixed defect, 2 -> revarsable defect)')
+        Age = st.text_input('Age of the Person')
+        Sex = st.text_input('Sex of the Person (0-> Female 1-> Male)')
+        Cp = st.text_input('Rating of Chest Pain (0 - 3, 3 being severe)')
+        testbps = st.text_input('Resting Blood Pressure')
+        chol = st.text_input('Cholestrol level in mg/dl')
+        fbs = st.text_input('Fasting blood sugar')
+        restecg = st.text_input('Resting Electrocardiographic results (values 0,1,2)')
+        thalach = st.text_input('Maximum Heart Rate Achieved')
+        exang = st.text_input('Exercise induced angina')
+        oldpeak = st.text_input('ST depression induced by exercise relative to rest')
+        slope = st.text_input('Slope of the Peak Exercise ST segment')
+        ca = st.text_input('Number of major vessels (0-3) colored by fluorosopy')
+        thal = st.text_input('Thalassemia (0 -> normal, 1 -> fixed defect, 2 -> revarsable defect)')
 
-    #code for Prediction
-    heart_pred = ''
+        #code for Prediction
+        heart_pred = ''
 
-    #creating a button for prediction
-    if st.button('Heart Disease Result'):
-        heart_pred = heart_disease_model.predict([[Age, Sex, Cp, testbps, chol, fbs, restecg, thalach, exang, oldpeak, slope, ca, thal]])
-        #reason for 2 square brackets is to tell the model we are predicting for one data point.
+        #creating a button for prediction
+        if st.button('Heart Disease Result'):
+            heart_pred = heart_disease_model.predict([[Age, Sex, Cp, testbps, chol, fbs, restecg, thalach, exang, oldpeak, slope, ca, thal]])
+            #reason for 2 square brackets is to tell the model we are predicting for one data point.
 
-        if (heart_pred[0] == 1):
-            heart_pred = 'The test returned positive for Heart Disease'
-        else:
-            heart_pred = 'The test returned negative for Heart Disease'
+            if (heart_pred[0] == 1):
+                heart_pred = 'The test returned positive for Heart Disease'
+            else:
+                heart_pred = 'The test returned negative for Heart Disease'
 
-    st.success(heart_pred)
+        st.success(heart_pred)
+    except ValueError as e:
+        st.error(f"Invalid Input. Please enter a numeric value. Error: {e}")
 
 
 if(selected == 'Parkinsons Disease Prediction'):
@@ -93,72 +96,100 @@ if(selected == 'Parkinsons Disease Prediction'):
 
     #code for Prediction
     if st.button('Parkinson Disease Result'):
-        parkinson_pred = parkinsons_disease_model.predict([[Fo, Fhi, Flo, Jitter_perc, Jitter_abs, Rap, ppq, Jitter_ddp, Shimmer, Shimmer_dB, Shimmer_APQ3, Shimmer_APQ5, apq, dda, nhr, hnr, rpde, dfa, spread1, spread2, D2, ppe]])
+        try:
+            parkinson_pred = parkinsons_disease_model.predict([[Fo, Fhi, Flo, Jitter_perc, Jitter_abs, Rap, ppq, Jitter_ddp, Shimmer, Shimmer_dB, Shimmer_APQ3, Shimmer_APQ5, apq, dda, nhr, hnr, rpde, dfa, spread1, spread2, D2, ppe]])
 
-        if (parkinson_pred[0] == 0):
-            parkinson_pred = 'The Patient is tested negative for Parkinson Disease'
-        else:
-            parkinson_pred = 'The Patient is tested positive for Parkinson Disease'
+            if (parkinson_pred[0] == 0):
+                parkinson_pred = "The Patient is tested negative for Parkinson Disease"
+            else:
+                parkinson_pred = "The Patient is tested positive for Parkinson's Disease"
 
-        st.success(parkinson_pred)
+            st.success(parkinson_pred)
+        except ValueError as e:
+            st.error(f"Invalid Input. Please enter numeric values. Error: {e}")
+
 
 
 
 if (selected == 'Breast Cancer Prediction'):
     #page title
     st.title('Breast Cancer Prediction')
+    try:
 
-    radius_mean = st.text_input('Enter the mean radius')
-    texture_mean = st.text_input('Enter the mean texture')
-    perimeter_mean = st.text_input('Enter the mean perimeter')
-    area_mean = st.text_input('Enter the mean area')
-    smoothness_mean = st.text_input('Enter the mean smoothness')
-    compactness_mean = st.text_input('Enter the mean compactness')
-    concavity_mean = st.text_input('Enter the mean concavity')
-    concavity_mean_points = st.text_input('Enter the mean concavity points')
-    symmetry_mean = st.text_input('Enter the mean symmetry')
-    fractal_dimension_mean = st.text_input('Enter the mean fractional dimension')
-    radius_se = st.text_input('Enter the radius error')
-    texture_se = st.text_input('Enter the texture error')
-    perimeter_se = st.text_input('Enter the perimeter error')
-    area_se = st.text_input('Enter the area error')
-    smoothness_se = st.text_input('Enter the smoothness error')
-    compactness_se = st.text_input('Enter the compactness error')
-    concavity_se = st.text_input('Enter the concavity error')
-    concave_points_se = st.text_input('Enter the concave points error')
-    symmetry_se = st.text_input('Enter the symmetry error')
-    fractal_dimension_error = st.text_input('Enter the fractional dimension error')
-    radius_worst = st.text_input('Enter the worst radius')
-    texture_worst = st.text_input('Enter the worst texture')
-    perimeter_worst = st.text_input('Enter the worst perimeter')
-    area_worst = st.text_input('Enter the worst area')
-    smoothness_worst = st.text_input('Enter the worst smoothness')
-    compactness_worst = st.text_input('Enter the worst compactness')
-    concavity_worst = st.text_input('Enter the worst concavity')
-    concavity_points_worst = st.text_input('Enter the worst concavity points')
-    symmetry_worst = st.text_input('Enter the worst symmetry')
-    fractal_dimension_worst = st.text_input('Enter the worst fractional dimension')
+        radius_mean = st.text_input('Enter the mean radius')
+        texture_mean = st.text_input('Enter the mean texture')
+        perimeter_mean = st.text_input('Enter the mean perimeter')
+        area_mean = st.text_input('Enter the mean area')
+        smoothness_mean = st.text_input('Enter the mean smoothness')
+        compactness_mean = st.text_input('Enter the mean compactness')
+        concavity_mean = st.text_input('Enter the mean concavity')
+        concavity_mean_points = st.text_input('Enter the mean concavity points')
+        symmetry_mean = st.text_input('Enter the mean symmetry')
+        fractal_dimension_mean = st.text_input('Enter the mean fractional dimension')
+        radius_se = st.text_input('Enter the radius error')
+        texture_se = st.text_input('Enter the texture error')
+        perimeter_se = st.text_input('Enter the perimeter error')
+        area_se = st.text_input('Enter the area error')
+        smoothness_se = st.text_input('Enter the smoothness error')
+        compactness_se = st.text_input('Enter the compactness error')
+        concavity_se = st.text_input('Enter the concavity error')
+        concave_points_se = st.text_input('Enter the concave points error')
+        symmetry_se = st.text_input('Enter the symmetry error')
+        fractal_dimension_error = st.text_input('Enter the fractional dimension error')
+        radius_worst = st.text_input('Enter the worst radius')
+        texture_worst = st.text_input('Enter the worst texture')
+        perimeter_worst = st.text_input('Enter the worst perimeter')
+        area_worst = st.text_input('Enter the worst area')
+        smoothness_worst = st.text_input('Enter the worst smoothness')
+        compactness_worst = st.text_input('Enter the worst compactness')
+        concavity_worst = st.text_input('Enter the worst concavity')
+        concavity_points_worst = st.text_input('Enter the worst concavity points')
+        symmetry_worst = st.text_input('Enter the worst symmetry')
+        fractal_dimension_worst = st.text_input('Enter the worst fractional dimension')
 
-    breast_cancer_pred = ''
+        breast_cancer_pred = ''
 
-    if st.button('Breast Cancer Result'):
-        breast_cancer_pred = breast_cancer_model.predict([[radius_mean, texture_mean, perimeter_mean, area_mean, smoothness_mean, compactness_mean, concavity_mean, concavity_mean_points, symmetry_mean, fractal_dimension_mean, radius_se, texture_se, perimeter_se, area_se, smoothness_se, compactness_se, concavity_se, concave_points_se, symmetry_se, fractal_dimension_error, radius_worst, texture_worst, perimeter_worst, area_worst, smoothness_worst, compactness_worst, concavity_worst, concavity_points_worst, symmetry_worst, fractal_dimension_worst]])
+        if st.button('Breast Cancer Result'):
+            breast_cancer_pred = breast_cancer_model.predict([[float(radius_mean), float(texture_mean), float(perimeter_mean), float(area_mean), float(smoothness_mean), float(compactness_mean), float(concavity_mean), float(concavity_mean_points), float(symmetry_mean), float(fractal_dimension_mean), float(radius_se), float(texture_se), float(perimeter_se), float(area_se), float(smoothness_se), float(compactness_se), float(concavity_se), float(concave_points_se), float(symmetry_se), float(fractal_dimension_error), float(radius_worst), float(texture_worst), float(perimeter_worst), float(area_worst), float(smoothness_worst), float(compactness_worst), float(concavity_worst), float(concavity_points_worst), float(symmetry_worst), float(fractal_dimension_worst)]])
 
-        if (breast_cancer_pred[0] == 0):
-            breast_cancer_pred = 'Positive for Breast Cancer'
-        else:
-            breast_cancer_pred = 'Negative for Breast Cancer'
+            if (breast_cancer_pred[0] == 0):
+                breast_cancer_pred = 'Negative for Breast Cancer'
+            else:
+                breast_cancer_pred = 'Positive for Breast Cancer'
 
-        st.success(breast_cancer_pred)
+            st.success(breast_cancer_pred)
+    except ValueError as e:
+        st.error(f"Invalid Input. Please enter numeric values. Error: {e}")
 
 
 if (selected == 'Diabetes Prediction'):
     st.title('Diabetes Prediction')
 
-    Sex = st.text_input('Sex of the person')
-    Age = st.text_input('Age of the person')
-    Hypertension = st.text_input('Hypertension condition of the person (0 -> No, 1 -> Yes)')
-    Heart_disease = st.text_input('Presence of heart disease with the perosn (0 - > No, 1 - > Yes')
+    try:
+
+        Age = st.text_input('Enter your age')
+        gender = st.text_input('Enter your gender')
+        hypertension = st.text_input('Enter hypertension')
+        heart_disease = st.text_input('presence of heart disease')
+        smoking_history = st.text_input('smoking history')
+        bmi = st.text_input('Enter your BMI value')
+        HbA1c_level = st.text_input('Enter your HbA1c level')
+        blood_glulcose = st.text_input('Enter your blood glucose level')
+
+        diabetes_pred = ''
+        if st.button('Diabetes Prediction Result'):
+            diabetes_pred = diabetes_prediction_model.predict([[Age, gender, hypertension, heart_disease,smoking_history, bmi,HbA1c_level, blood_glulcose]])
+
+            if (diabetes_pred[0] == 0):
+                diabetes_pred = 'Negative for Diabetes'
+            else:
+                diabetes_pred = 'Positive for Diabetes'
+
+            st.success(diabetes_pred)
+    except ValueError as e:
+        st.error(f"Invalid input. Please enter numeric values. Error: {e}")
+
+
 
 
 
