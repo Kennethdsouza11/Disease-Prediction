@@ -22,7 +22,6 @@ with st.sidebar:
                             'Parkinsons Disease Prediction',
                             'Breast Cancer Prediction',
                             'Diabetes Prediction'],
-                            icons = ['activity','person-walking','person'],
                             default_index = 0)
 
 #deafult index = 0 means whenever we open the page it will load the page with index 0 here it is Heart Disease Prediction.
@@ -30,7 +29,7 @@ with st.sidebar:
 #Heart Disease Prediction Page
 if (selected == 'Heart Disease Prediction'):
     #page title
-    st.title('Heart Disease Prediction Using ML')
+    st.title('Heart Disease Prediction using ML')
     try:
 
         Age = st.text_input('Age of the Person')
@@ -67,7 +66,7 @@ if (selected == 'Heart Disease Prediction'):
 
 if(selected == 'Parkinsons Disease Prediction'):
     #page title
-    st.title('Parkinsons Disease Prediction Using ML')
+    st.title('Parkinsons Disease Prediction using ML')
 
     Fo = st.text_input('Enter the MDVP: Fo(Hz) value')
     Fhi = st.text_input('Enter the MDVP:Fhi(Hz) value')
@@ -113,7 +112,7 @@ if(selected == 'Parkinsons Disease Prediction'):
 
 if (selected == 'Breast Cancer Prediction'):
     #page title
-    st.title('Breast Cancer Prediction')
+    st.title('Breast Cancer Prediction using ML')
     try:
 
         radius_mean = st.text_input('Enter the mean radius')
@@ -163,7 +162,7 @@ if (selected == 'Breast Cancer Prediction'):
 
 
 if (selected == 'Diabetes Prediction'):
-    st.title('Diabetes Prediction')
+    st.title('Diabetes Prediction using ML')
 
     try:
 
