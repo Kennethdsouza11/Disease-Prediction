@@ -5,13 +5,13 @@ from streamlit_option_menu import option_menu #used for making the sidebar
 
 #loading the saved models
 
-heart_disease_model = pickle.load(open(r'saved_models\heart_disease_model.sav','rb'))
+heart_disease_model = pickle.load(open(r'Disease-Prediction\heart_disease_model.sav','rb'))
 
-parkinsons_disease_model = pickle.load(open(r'saved_models\parkinsons_disease_model.sav','rb'))
+parkinsons_disease_model = pickle.load(open(r'Disease-Prediction\parkinsons_disease_model.sav','rb'))
 
-breast_cancer_model = pickle.load(open(r'saved_models\breast_cancer_model.sav','rb'))
+breast_cancer_model = pickle.load(open('Disease-Prediction\breast_cancer_model.sav','rb'))
 
-diabetes_prediction_model = pickle.load(open(r'saved_models\diabetes_prediction_model.sav', 'rb'))
+diabetes_prediction_model = pickle.load(open(r'Disease-Prediction\diabetes_prediction_model.sav', 'rb'))
 
 #sidebar for navigation
 
