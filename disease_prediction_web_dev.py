@@ -43,7 +43,7 @@ if (selected == 'Heart Disease Prediction'):
         exang = st.text_input('Exercise induced angina')
         oldpeak = st.text_input('ST depression induced by exercise relative to rest')
         slope = st.text_input('Slope of the Peak Exercise ST segment')
-        ca = st.text_input('Number of major vessels (0-3) colored by fluorosopy')
+        ca = st.text_input('Number of major vessels (0-4) colored by fluorosopy')
         thal = st.text_input('Thalassemia (0 -> normal, 1 -> fixed defect, 2 -> revarsable defect)')
 
         #code for Prediction
