@@ -170,7 +170,7 @@ if (selected == 'Diabetes Prediction'):
         gender = st.text_input('Enter your gender')
         hypertension = st.text_input('Enter hypertension')
         heart_disease = st.text_input('presence of heart disease')
-        smoking_history = st.text_input('smoking history')
+        smoking_history = st.text_input('smoking history (0 -> current, 1 -> former, 2 -> never)')
         bmi = st.text_input('Enter your BMI value')
         HbA1c_level = st.text_input('Enter your HbA1c level')
         blood_glulcose = st.text_input('Enter your blood glucose level')
