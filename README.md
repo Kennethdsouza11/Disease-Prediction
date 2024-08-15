@@ -46,7 +46,7 @@ For the SVC models used in heart disease, Parkinson's disease, and diabetes pred
 - >degree (Degree of the polynomial kernel function)
 Tuning was done using Grid Search and Randomized Search techniques to find the best combination of these parameters.
 
-# User Interface
+## User Interface
 
 The interactive user interface is built using Streamlit. It allows users to input their health metrics and receive predictions for the following conditions:
 
@@ -55,6 +55,26 @@ The interactive user interface is built using Streamlit. It allows users to inpu
 - >Parkinson's Disease
 - >Diabetes
 
+## Installation
+
+### Prequisites
+
+- >Python 3.x installed on your system
+- >Ensure you have 'pip' installed
+
+### Steps
+
+1. Clone this repository:
+- >     git clone https://github.com/your-username/multiple-disease-prediction.git
+- >     cd multiple-disease-prediction
+2. Create and activate a virtual environment (optional but recommended):
+- >     python -m venv venv
+- >     source venv/bin/activate (on Windows: venv\Scripts\activate)
+3. Install the require packages
+- >     pip install -r requirements.txt
+4. Run the Streamlit app:
+- >     streamlit run disease_prediction_web_dev.python
+5. Open your browser and navigate to your local host to view the application.
 ## Usage
 
 1. Open your web browser and navigate to the URL provided by Streamlit
